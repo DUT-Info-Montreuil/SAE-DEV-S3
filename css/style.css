@@ -1,0 +1,60 @@
+/* Custom styles */
+.logo {
+    width: 100px;
+    height: auto;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.search {
+    margin: 20px auto;
+    width: 80%;
+}
+.search input {
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+.search button {
+    width: 15%;
+    border: none;
+    border-radius: 10px;
+    background-color: darkblue; /* Couleur de fond bleue foncée */
+    color: white;
+    padding: 10px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease; /* Transition pour l'animation */
+}
+
+.search button:hover {
+    background-color: royalblue; /* Nouvelle couleur de fond au survol */
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+/* Dark theme */
+body {
+    background-color: #222;
+    color: white;
+}
+.navbar {
+    background-color: #111;
+}
+.card {
+    background-color: #333;
+}
+.card-title, .card-text {
+    color: white;
+}
+.btn-primary {
+    background-color: green;
+    border: none;
+}
