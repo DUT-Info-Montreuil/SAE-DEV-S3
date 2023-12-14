@@ -58,3 +58,8 @@ body {
     background-color: green;
     border: none;
 }
+
+.table, .table th, .table td{
+    border: none;
+    color: white;
+}
