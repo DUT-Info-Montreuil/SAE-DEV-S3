@@ -58,3 +58,8 @@ body {
     background-color: green;
     border: none;
 }
+
+a:hover{
+    text-decoration: none;
+    color: none;
+}
