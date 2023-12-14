@@ -63,3 +63,8 @@ body {
     border: none;
     color: white;
 }
+
+a:hover{
+    text-decoration: none;
+    color: none;
+}
