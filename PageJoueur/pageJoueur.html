@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Joueur</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../PagelisteEntite/listeEntite.html">Entités</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../PageDesMaps/pageDesMaps.html">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Joueurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Signup / login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="pseudo">
+                    <h2>Pseudo</h2>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="quest">
+                    <h4>Quête 1</h4>
+                    <div class="progress-container">
+                        <div class="progress-circle" id="progress-circle-1">
+                            <span class="progress-text">50%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-2">
+                <div class="quest">
+                    <h4>Quête 2</h4>
+                    <div class="progress-container">
+                        <div class="progress-circle" id="progress-circle-2">
+                            <span class="progress-text">75%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-2">
+                <div class="quest">
+                    <h4>Quête 3</h4>
+                    <div class="progress-container">
+                        <div class="progress-circle" id="progress-circle-3">
+                            <span class="progress-text">25%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row mb-4">
+            <div class="col-md-6 nav-stats">
+                <h2>Les statistiques</h2>
+                <ul class="nav nav-tabs active" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#générales" role="tab" aria-controls="générales" aria-selected="false">Statistiques générales</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade" id="générales" role="tabpanel" aria-labelledby="générales-tab">
+                        <!-- Contenu de l'onglet Profile -->
+                        <h3>Statistiques du joueur</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Stat</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Niveau</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre de partie Jouée</td>
+                                    <td>5000</td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre de partie gagnée</td>
+                                    <td>5000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <!-- Contenu de l'onglet Contact -->
+                        <h3>Image</h3>
+                        <img src="chemin/vers/votre/image.jpg" alt="Image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 friends-list">
+                <h2>Liste d'amis</h2>   
+                <ul class="list-group">
+                    <li class="list-group-item">Ami 1</li>
+                    <li class="list-group-item">Ami 2</li>
+                    <li class="list-group-item">Ami 3</li>
+                    <li class="list-group-item">Ami 4</li>
+                    <li class="list-group-item">Ami 5</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer py-3 fixed-bottom">
+        <div class="container text-center">
+            <p>Footix © 2023</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
