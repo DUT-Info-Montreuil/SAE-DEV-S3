@@ -1,5 +1,5 @@
 <?php
-    class vue_generique {
+    class VueGenerique {
         public function __construct (){
             ob_start();
         }
