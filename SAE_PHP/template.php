@@ -10,7 +10,9 @@
         <header>
             <?php echo $menu->getAffichage();?>
         </header>
-        <main></main>
+        <main>
+        <?=$module_html?>
+        </main>
         <footer>
             <?php echo $footer->getAffichage();?>
         </footer>

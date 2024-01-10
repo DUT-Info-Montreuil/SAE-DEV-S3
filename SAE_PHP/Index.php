@@ -13,16 +13,16 @@ require_once "Composants/footer/composant_footer.php";
 
 //Connexion::init_connexion();
 
-//$site = new Site();
+$site = new Site();
 
-//$site->exec_module();
+$site->exec_module();
 
 $menu = new ComposantMenu();
 
 $footer = new ComposantFooter();
 
 
-//$module_html = $site->get_module()->get_affichage();
+$module_html = $site->get_module()->get_affichage();
 
 include_once "template.php";
 ?>

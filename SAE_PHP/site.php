@@ -13,7 +13,7 @@ class Site {
 			case "accueil" :
 			case "map" :
 			case "joueur" :
-				require_once "modules/mod_".$this->module_name."/module_".$this->module_name.".php";
+				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :
 				die ("Module inexistant");
