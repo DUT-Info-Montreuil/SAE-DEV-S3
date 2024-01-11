@@ -14,7 +14,7 @@ class VueCompMenu extends VueCompGenerique {
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link active" href="../index.html">Accueil</a>
+						<a class="nav-link active" href="index.php?module=accueil">Accueil</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="PagelisteEntite/listeEntite.html">Entités</a>
@@ -23,7 +23,7 @@ class VueCompMenu extends VueCompGenerique {
 						<a class="nav-link" href="/PageDesMaps/pageDesMaps.html">Map</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Joueurs</a>
+						<a class="nav-link" href="index.php?module=leaderboard">Joueurs</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">À propos</a>

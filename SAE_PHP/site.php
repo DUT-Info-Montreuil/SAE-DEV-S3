@@ -7,12 +7,12 @@ class Site {
 	
 	
 	public function __construct() {
-		$this->module_name = isset($_GET['module']) ? $_GET['module'] : "accueil";
+		$this->module_name = isset($_GET['module']) ? $_GET['module'] : "leaderboard";
 
 		switch ($this->module_name) {
 			case "accueil" :
 			case "map" :
-			case "joueur" :
+			case "leaderboard" :
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :
