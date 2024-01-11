@@ -8,7 +8,7 @@ class vue_leaderboard extends vue_generique {
 
     public function afficheLeaderboard($liste) {
         echo '<div class="row justify-content-center">';
-        echo '<div class="col-md-10 mb-4">'; // Adjust the class and styling as needed
+        echo '<div class="col-md-10 mb-4">'; 
         echo '<div class="card text-center p-3 mb-3">';
         echo '<div class="container mt-5">';
         echo '<h2>Classement général</h2>';
