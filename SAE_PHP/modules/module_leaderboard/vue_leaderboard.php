@@ -36,7 +36,7 @@ class vue_leaderboard extends vue_generique {
     
             echo '<tr>';
             echo '<td>' . $classement . '</td>';
-            echo '<th scope="row">' . "<a href='Index.php?module=mod_equipe&action=details&id=$id'>$nom</a>" . '</th>';
+            echo '<th scope="row">' . "<a href='Index.php?module=mod_pgJoueur&id=$id'>$nom</a>" . '</th>';
             echo '<td>' . $score . '</td>';
             echo '<td>' . $vague . '</td>';
             echo '<td>' . $map . '</td>';
