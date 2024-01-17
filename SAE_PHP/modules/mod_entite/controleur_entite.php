@@ -47,7 +47,7 @@ class ControleurEntite
         if (!$donnees) {
             die("Erreur dans la récupération de la defence");
         }
-        $this->vue->details($donnees);
+        $this->vue->detailsDefence($donnees);
     }
 
     private function detailsEnnemi()
@@ -57,6 +57,6 @@ class ControleurEntite
         if (!$donnees) {
             die("Erreur dans la récupération de l'ennemi");
         }
-        $this->vue->details($donnees);
+        $this->vue->detailsEnnemi($donnees);
     }
 }
