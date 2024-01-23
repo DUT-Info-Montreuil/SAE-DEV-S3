@@ -8,10 +8,10 @@ require_once "composant_generique.php";
 require_once "vue_composant_generique.php";
 require_once "site.php";
 
+Connexion::initConnexion();
+
 require_once "Composants/menu/composant_menu.php";
 require_once "Composants/footer/composant_footer.php";
-
-//Connexion::init_connexion();
 
 $site = new Site();
 
