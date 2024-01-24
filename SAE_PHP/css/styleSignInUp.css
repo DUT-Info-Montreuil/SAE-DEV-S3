@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-main
+.formGeneral
 {
     display:flex;
     justify-content: center;
@@ -13,11 +13,11 @@ main
     min-height: 100vh;
 }
 
-.row{
+.formGeneral .row{
     width: 1170px;
     height: 550px;
 }
-.container .boxAll
+.formGeneral .container .boxAll
 {
     position: relative;
     width: 800px;
@@ -28,7 +28,7 @@ main
     align-items: center;
 }
 
-.container .box
+.formGeneral .container .box
 {
     position: relative;
     width: 50%;
@@ -40,7 +40,7 @@ main
     flex-direction: column;
     padding: 40px;
 }
-.container .box h2
+.formGeneral .container .box h2
 {
     color: #ffffff;
     font-size: 1.2em;
@@ -48,7 +48,7 @@ main
     margin-bottom: 10px;
 }
 
- .container .bow button
+.formGeneral .container .bow button
 {
     cursor: pointer;
     padding: 10px 20px;
@@ -60,7 +60,7 @@ main
     outline: none;
  }
 
-.formBx
+ .formGeneral .formBx
 {
     position: absolute;
     left: 50px;

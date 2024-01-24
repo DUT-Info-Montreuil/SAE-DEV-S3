@@ -45,6 +45,7 @@ $(document).ready(function() {
             $('.password_match').removeClass('complete')
             all_pass = false;
         }
+        document.getElementById("InscriptionBtn").disabled = !all_pass;
     }
     validateInput.each(validateInputs).on('keyup', validateInputs);
     
