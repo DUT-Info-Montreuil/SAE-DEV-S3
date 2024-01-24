@@ -1,7 +1,7 @@
 <?php
 require_once "modules/module_apropos/vue_apropos.php";
 
-class cont_apropos   {
+class cont_apropos {
     private $vue;
 
     public function __construct(){
