@@ -12,6 +12,7 @@ class cont_recherche {
     }
 
     public function exec() {
+        $this->vue->affiche_recherche();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $searchTerm = $_POST['query']; 
             $joueurs = $this->modele->rechercheLesJoueurs($searchTerm);
