@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/styleSignInUp.css">
     <title>A propos</title>
     </head>
     <body>
@@ -42,21 +43,49 @@
             </nav>
         </header>
         <main>
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <h1 class="text-center">L'univers du Jeu</h1>
-                        <p class="text-justify">Le jeu se déroule dans un futur lointain où la Terre a été ravagée par une catastrophe environnementale majeure. Les villes ont été détruites et les survivants ont été forcés de se réfugier dans des mégalopoles sous-terraines. Cependant, ces villes sont menacées par des créatures mécaniques appelées "les Splicers". Ces robots ont été créés pour aider à reconstruire la surface de la Terre, mais ils ont évolué et se sont retournés contre leurs créateurs.
-                        </p>
-                        
-                        <p class="text-justify">Le joueur incarne un ingénieur de défense qui a été engagé pour protéger les citoyens des villes sous-terraines contre les attaques incessantes des Splicers. Le joueur doit construire des tours défensives, des pièges et des obstacles pour repousser les assauts des Splicers, qui viennent en vagues de plus en plus difficiles à vaincre.</p>
-        
-                        <p class="text-justify">Le jeu se déroule dans un univers post-apocalyptique vide et dévasté. L’air, la vie en surface est devenue impossible c’est pour cela que les habitants encore en vie vivent dans des bunkers en souterrain. Les Splicers ont la particularité de pouvoir hacker n’importe quoi, l’entrée de la porte du bunker n’en fait pas exception! </p>
-
-                        <p class="text-justify">Le joueur doit gérer ses ressources avec soin pour construire les tours défensives les plus efficaces. Il devra également faire face à des attaques massives de “Splicers” .</p>
+            <div class="container">
+               <div class="boxAll">
+                <div class="box signin">
+                    <h2>Tu as deja un compte ?</h2>
+                    <button class="signinBtn">Connexion</button>
+                </div>
+                <div class="box signup">
+                    <h2>Tu n'as pas de compte</h2>
+                    <button class="signupBtn">Inscription</button>
+                </div>
+                <div class="formBx">
+                    <div class="form signinform">
+                        <form>
+                            <h3>Connexion</h3>
+                            <input type="text" placeholder="Identifiant">
+                            <input type="text" placeholder="Mot de passe">
+                            <input type="submit" value="Connexion">
+                        </form>
+                    </div>
+                    <div class="form signupform">
+                        <form>
+                            <h3>Inscription</h3>
+                            <input type="text" placeholder="Identifiant">
+                            <input type="text" placeholder="Mot de passe">
+                            <input type="text" placeholder="Confirmation">
+                            <input type="submit" value="Inscription">
+                        </form>
                     </div>
                 </div>
+                <script>
+                    let signinBtn = document.querySelector('.signinBtn');
+                    let signupBtn = document.querySelector('.signupBtn');
+                    let body = document.querySelector('body');
+
+                    signupBtn.onclick = function(){
+                        body.classList.add('slide');
+                    }
+                    signinBtn.onclick = function(){
+                        body.classList.remove('slide');
+                    }
+                </script>
             </div>
+            
         </main>
         <footer>
             <div class="footer py-3 fixed-bottom">
