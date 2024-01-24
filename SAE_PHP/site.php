@@ -14,7 +14,8 @@ class Site {
 			case "map" :
 			case "joueur" :
 			case "leaderboard" :
-			case "recherche" : 
+			case "recherche" :
+			case "rapportbug" :
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :

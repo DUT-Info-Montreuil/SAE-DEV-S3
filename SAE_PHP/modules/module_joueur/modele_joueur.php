@@ -30,12 +30,18 @@ class modele_joueur extends Connexion{
     }
     
     public function get_amis($id) {
-        $nrq = Connexion::$bdd->prepare("SELECT Joueurs.Pseudo, Joueurs.idJoueur
+        $nrq = Connexion::$bdd->prepare("SELECT Joueurs.idJoueur, Joueurs.Pseudo 
+        FROM Joueurs 
+        WHERE idJoueur IN 
+        ( SELECT CASE 
+        WHEN idJoueur = :id
+        THEN idJoueur_Joueur 
+        ELSE idJoueur 
+        END AS ami_id 
         FROM AUneRelationAvec 
-        INNER JOIN Joueurs on AUneRelationAvec.idJoueur_joueur = Joueurs.idJoueur 
-        WHERE AUneRelationAvec.idJoueur =:id
+        WHERE (idJoueur = :id OR idJoueur_Joueur = :id) 
+        AND Amis = TRUE)
         ");
-
     $nrq->bindParam("id", $id, PDO::PARAM_INT);
     $nrq->execute();
     $retour = $nrq->fetchAll(PDO::FETCH_ASSOC);
