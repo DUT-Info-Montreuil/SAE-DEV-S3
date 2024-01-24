@@ -12,8 +12,11 @@ class cont_leaderboard {
     }
 
     public function exec() {
-        $liste = $this->modele-> getListeJoueur();
 
-        $this->vue->afficheLeaderboard($liste);    
+      $this->vue->affiche_recherche();
+
+      $liste = $this->modele-> getListeJoueur();
+
+      $this->vue->afficheLeaderboard($liste);    
     }
 }
