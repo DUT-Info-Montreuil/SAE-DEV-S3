@@ -4,7 +4,7 @@ class vue_accueil extends vue_generique {
     public function __construct () {
 		parent::__construct();
 
-	}
+    }
 
     public function affiche_quetes($quetes){
         ?>

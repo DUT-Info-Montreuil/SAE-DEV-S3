@@ -14,6 +14,8 @@ class cont_accueil {
     public function exec() {    
       $quetes = $this->modele->lesQuetes();
       
+      $this->vue->affiche_recherche();
+      
       $this->vue->affiche_quetes($quetes);
 
       $ennemi = $this->modele->leMeilleurEnnemi();

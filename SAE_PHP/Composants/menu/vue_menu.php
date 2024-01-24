@@ -5,7 +5,7 @@ class VueCompMenu extends VueCompGenerique {
 		$this->affichage .= '            
 		<nav class="navbar navbar-expand-lg navbar-dark">
 		<div class="container">
-			<a class="navbar-brand" href="../index.html">
+			<a class="navbar-brand" href="Index.php?module=accueil">
 				<img src="logo.png" alt="Logo" class="logo">
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">                        
@@ -14,7 +14,7 @@ class VueCompMenu extends VueCompGenerique {
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link active" href="Index.php?module=accueil">Accueil</a>
+						<a class="nav-link" href="Index.php?module=accueil">Accueil</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="PagelisteEntite/listeEntite.html">Entités</a>
