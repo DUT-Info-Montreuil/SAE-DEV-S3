@@ -29,7 +29,7 @@ class VueCompMenu extends VueCompGenerique {
 						<a class="nav-link" href="#">À propos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Signup / login</a>
+						<a class="nav-link" href="Index.php?module=signInUp">Signup / login</a>
 					</li>
 				</ul>
 			</div>

@@ -61,7 +61,10 @@ body {
 
 .table, .table th, .table td{
     border: none;
-    color: white;
+    color: white;ow{
+        width: 1170px;
+        height: 550px;
+    }
 }
 
 

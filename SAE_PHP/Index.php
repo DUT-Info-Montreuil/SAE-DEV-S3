@@ -25,4 +25,3 @@ $footer = new ComposantFooter();
 $module_html = $site->get_module()->get_affichage();
 
 include_once "template.php";
-?>

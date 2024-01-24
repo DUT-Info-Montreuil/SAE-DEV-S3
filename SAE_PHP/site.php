@@ -15,6 +15,7 @@ class Site {
 			case "joueur" :
 			case "leaderboard" :
 			case "recherche" : 
+			case "signInUp" :
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :

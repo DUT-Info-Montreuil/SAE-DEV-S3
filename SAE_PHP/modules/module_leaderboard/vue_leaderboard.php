@@ -1,5 +1,5 @@
 <?php 
-require_once"vue_generique.php";
+require_once "vue_generique.php";
 class vue_leaderboard extends vue_generique {
     public function __construct () {
 		parent::__construct();
