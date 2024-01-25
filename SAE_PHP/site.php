@@ -17,6 +17,7 @@ class Site {
 			case "recherche" :
 			case "rapportbug" :
 			case "apropos" : 
+			case "maps" :
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :
