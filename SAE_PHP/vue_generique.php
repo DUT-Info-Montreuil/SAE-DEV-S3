@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('APPLICATION_STARTED')) {
     die("Accès interdit");
 }
