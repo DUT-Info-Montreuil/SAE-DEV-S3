@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_signInUp/modele_signInUp.php";
 require_once "modules/module_signInUp/vue_signInUp.php";
 
@@ -82,8 +85,8 @@ class cont_signInUp {
         $this->vue->affichage_SignInUp();
         $this->vue->erreur_inscription($login);
       }
+  }
       
-    }
 
     public function deconnexion () {
       unset($_SESSION['login']);
