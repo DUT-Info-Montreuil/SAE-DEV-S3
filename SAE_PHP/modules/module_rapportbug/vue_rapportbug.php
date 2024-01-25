@@ -50,6 +50,63 @@ class vue_rapportbug extends vue_generique {
 			echo 'Le rapport n`a pas pu être envoyé';
 		}
 	}
+
+	public function affiche_resultat($liste) {
+		echo '<div class="row justify-content-center">';
+		echo '<div class="col-md-10 mb-4">'; 
+		echo '<div class="card text-center p-3 mb-3">';
+		echo '<div class="container mt-5">';
+		echo '<h2>Résultats de la Recherche</h2>';
+		echo '<table class="table">';
+		echo '<thead>';
+		echo '<tr>';
+		echo '<th scope="col">id du rapport</th>';
+		echo '<th scope="col">Titre du rapport</th>';
+		echo '</tr>';
+		echo '</thead>';
+		echo '<tbody>';
+		$i = 0;
+	
+		foreach ($liste as $element) {
+			$id = $element['idRapportBug'];
+			$nom = $element['titre'];
+	
+			echo '<tr>';
+			echo '<td>' . $id . '</td>';
+			echo '<th scope="row">' . "<a href='Index.php?module=rapportbug&action=detail&id=$id'>$nom</a>" . '</th>';
+			echo '</tr>';
+		}
+	
+		echo '</tbody>';
+		echo '</table>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		echo '</main>';
+	}
+	
+
+	public function affiche_detail($fiche_rapport) {
+	?>
+		<div class="row justify-content-center">
+			<div class="col-md-10 mb-4">
+				<div class="card text-center p-3 mb-3">
+					<div class="container mt-5">
+						<h2><?= $fiche_rapport['titre'] ?></h2>
+						<p>Date d'envoi : <?= $fiche_rapport['date'] ?></p>
+						<p>Contenu du rapport : <?= $fiche_rapport['description'] ?></p>
+						<form action="Index.php?module=rapportbug&action=detail&id=<?= $fiche_rapport['idRapportBug'] ?>" method="POST">
+							<button type="submit" class="btn btn-primary">Marquer comme résolu et quitter</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<?php
+	}
+	
 	
 	
 }
