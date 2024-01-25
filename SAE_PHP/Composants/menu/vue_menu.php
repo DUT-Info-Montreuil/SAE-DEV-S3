@@ -20,7 +20,7 @@ class VueCompMenu extends VueCompGenerique {
 						<a class="nav-link" href="Index.php?module=accueil">Accueil</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="PagelisteEntite/listeEntite.html">Entités</a>
+						<a class="nav-link" href="Index.php?module=entite&action=liste">Entités</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="Index.php?module=maps">Map</a>

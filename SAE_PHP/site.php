@@ -21,6 +21,7 @@ class Site {
 			case "rapportbug" :
 			case "apropos" : 
 			case "maps" :
+			case "entite":
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :

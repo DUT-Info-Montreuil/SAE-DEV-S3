@@ -1,6 +1,9 @@
 <?php
-require_once "modules/mod_entite/modele_entite.php";
-require_once "modules/mod_entite/vue_entite.php";
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
+require_once "modules/module_entite/modele_entite.php";
+require_once "modules/module_entite/vue_entite.php";
 
 class ControleurEntite
 {
@@ -37,7 +40,7 @@ class ControleurEntite
     {
         $listeDefence = $this->modele->get_listeDefence();
         $listeEnnemi = $this->modele->get_listeEnnemi();
-        $this->vue->liste($listeDefence,$listeEnnemi);
+        $this->vue->liste($listeDefence, $listeEnnemi);
     }
 
     private function detailsDefence()
@@ -47,6 +50,7 @@ class ControleurEntite
         if (!$donnees) {
             die("Erreur dans la récupération de la defence");
         }
+        $this->vue->
         $this->vue->detailsDefence($donnees);
     }
 
