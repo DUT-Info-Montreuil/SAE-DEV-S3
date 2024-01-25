@@ -10,6 +10,11 @@ class vue_rapportbug extends vue_generique {
 	}
 
 	public function affiche_ajoutRapport() {
+		$token = bin2hex(random_bytes(32));
+		$_SESSION['csrf_token'] = $token;
+		var_dump($_SESSION['csrf_token']);
+		echo'affiche';
+		var_dump($token);
 		?>
 		<div class="row justify-content-center">
 			<div class="col-md-10 mb-4">
@@ -18,7 +23,7 @@ class vue_rapportbug extends vue_generique {
 		
 					<h2>Ajouter un rapport de bug</h2>
 
-					<form action="Index.php?module=rapportbug" method="POST">
+					<form action="Index.php?module=rapportbug&action=envoie" method="POST">
 						<div class="mb-3">
 							<label for="titre" class="form-label">Titre du rapport :</label>
 								<input type="text" class="form-control" id="titre" name="titre" required>
@@ -27,13 +32,23 @@ class vue_rapportbug extends vue_generique {
 								<label for="contenu" class="form-label">Contenu du rapport :</label>
 									<textarea class="form-control" id="contenu" name="contenu" rows="4" required></textarea>
 							</div>
+							<input type="hidden" name="csrf_token" value="<?=$token?>">
 							<button type="submit" class="btn btn-primary">Soumettre</button>
 					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<?php
+	}
+
+	public function vue_reponse($bool){
+		if($bool == TRUE){
+			echo 'Le rapport de bug a bien été envoyé';
+		} else {
+			echo 'Le rapport n`a pas pu être envoyé';
+		}
 	}
 	
 	
