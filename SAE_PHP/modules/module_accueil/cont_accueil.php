@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_accueil/modele_accueil.php";
 require_once "modules/module_accueil/vue_accueil.php";
 

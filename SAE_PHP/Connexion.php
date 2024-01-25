@@ -1,4 +1,7 @@
-<?php 
+<?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+} 
 class Connexion {
 	protected static $bdd;
 	

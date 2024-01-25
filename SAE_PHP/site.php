@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 
 class Site {
 
@@ -15,6 +18,11 @@ class Site {
 			case "joueur" :
 			case "leaderboard" :
 			case "recherche" : 
+			case "signInUp" :
+			case "recherche" :
+			case "rapportbug" :
+			case "apropos" : 
+			case "maps" :
 			case "signInUp" :
 				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;

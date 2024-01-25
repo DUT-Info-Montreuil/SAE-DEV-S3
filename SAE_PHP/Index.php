@@ -1,5 +1,17 @@
 <?php
 session_start();
+$_SESSION["role"] = [
+    "admin" => false,
+    "joueur" => false,
+    "visiteur" => true
+];
+
+
+define('APPLICATION_STARTED', true);
+
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 
 require_once "Connexion.php";
 require_once "vue_generique.php";

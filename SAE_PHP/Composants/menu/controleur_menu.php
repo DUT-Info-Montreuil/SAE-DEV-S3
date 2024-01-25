@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 
 require_once "Composants/menu/vue_menu.php";
 

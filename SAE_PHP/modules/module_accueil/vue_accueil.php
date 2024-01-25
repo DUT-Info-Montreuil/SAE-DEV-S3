@@ -1,4 +1,7 @@
 <?php 
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 require_once"vue_generique.php";
 class vue_accueil extends vue_generique {
     public function __construct () {
@@ -19,7 +22,7 @@ class vue_accueil extends vue_generique {
                 ?>
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card mb-4 shadow-sm">
-                            <img src="<?=$quete["idQuete"]?>" alt="Quest" class="card-img-top">
+                            <img src="<?=$quete["image"]?>" alt="Quest" class="card-img-top"style="object-fit: cover; width: 100%; height: 100%;">
                             <div class="card-body">
                                 <h5 class="card-title"><?=$quete["nom"]?></h5>
                                 <p class="card-text"><?=$quete["Objectif"]?></p>

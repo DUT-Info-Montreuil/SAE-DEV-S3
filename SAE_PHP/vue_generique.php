@@ -1,4 +1,8 @@
 <?php
+
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
     class vue_generique {
         public function __construct (){
             ob_start();

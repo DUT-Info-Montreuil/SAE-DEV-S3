@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 require_once "Composants/footer/controleur_footer.php";
 
 class ComposantFooter extends ComposantGenerique {

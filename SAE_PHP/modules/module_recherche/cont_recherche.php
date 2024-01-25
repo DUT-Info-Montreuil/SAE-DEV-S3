@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 require_once "modules/module_recherche/modele_recherche.php";
 require_once "modules/module_recherche/vue_recherche.php";
 
@@ -13,7 +16,7 @@ class cont_recherche {
 
     public function exec() {
         $this->vue->affiche_recherche();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_POST['query'] != NULL) {
             $searchTerm = $_POST['query']; 
             $joueurs = $this->modele->rechercheLesJoueurs($searchTerm);
             if($joueurs == NULL){
