@@ -55,10 +55,12 @@ class cont_signInUp {
       if ($login === 'admin'){
         $_SESSION['role']['admin'] = true;
         $_SESSION['role']['visiteur'] = false;
+        $_SESSION['role']['joueur'] = false;
       }
       else{
         $_SESSION['role']['joueur'] = true;
         $_SESSION['role']['visiteur'] = false;
+        $_SESSION['role']['admin'] = false;
       }
 			$this->vue->confirm_connexion($login);
       $this->vue->redirectionJava();	
