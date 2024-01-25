@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 define('APPLICATION_STARTED', true);
 
 if (!defined('APPLICATION_STARTED')) {
