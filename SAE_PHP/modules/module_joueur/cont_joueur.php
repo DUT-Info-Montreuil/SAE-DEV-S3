@@ -22,7 +22,7 @@ class cont_joueur {
         $this->vue->affiche($fiche_joueur, $prog_quetes, $amis_joueur);
 
         if($_SESSION["role"]["joueur"] == TRUE){
-          $idconnect = $_SESSION["id"];
+          $idconnect = isset($_SESSION["id"]) ? $_SESSION["id"] : die("id du joueur manquant");
           if($idconnect != $id_joueur){
             if($this->modele->amis($id_joueur, $idconnect) == FALSE ){
               if($this->modele->bloque($id_joueur, $idconnect) == FALSE ){
