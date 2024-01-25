@@ -12,9 +12,6 @@ class vue_rapportbug extends vue_generique {
 	public function affiche_ajoutRapport() {
 		$token = bin2hex(random_bytes(32));
 		$_SESSION['csrf_token'] = $token;
-		var_dump($_SESSION['csrf_token']);
-		echo'affiche';
-		var_dump($token);
 		?>
 		<div class="row justify-content-center">
 			<div class="col-md-10 mb-4">
@@ -52,39 +49,39 @@ class vue_rapportbug extends vue_generique {
 	}
 
 	public function affiche_resultat($liste) {
-		echo '<div class="row justify-content-center">';
-		echo '<div class="col-md-10 mb-4">'; 
-		echo '<div class="card text-center p-3 mb-3">';
-		echo '<div class="container mt-5">';
-		echo '<h2>Résultats de la Recherche</h2>';
-		echo '<table class="table">';
-		echo '<thead>';
-		echo '<tr>';
-		echo '<th scope="col">id du rapport</th>';
-		echo '<th scope="col">Titre du rapport</th>';
-		echo '</tr>';
-		echo '</thead>';
-		echo '<tbody>';
-		$i = 0;
-	
-		foreach ($liste as $element) {
-			$id = $element['idRapportBug'];
-			$nom = $element['titre'];
-	
-			echo '<tr>';
-			echo '<td>' . $id . '</td>';
-			echo '<th scope="row">' . "<a href='Index.php?module=rapportbug&action=detail&id=$id'>$nom</a>" . '</th>';
-			echo '</tr>';
-		}
-	
-		echo '</tbody>';
-		echo '</table>';
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
-		echo '</main>';
-	}
+		?>
+			<div class="row justify-content-center">
+				<div class="col-md-10 mb-4">
+					<div class="card text-center p-3 mb-3">
+						<div class="container mt-5">
+							<h2>Résultats de la Recherche</h2>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">id du rapport</th>
+										<th scope="col">Titre du rapport</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($liste as $element): ?>
+										<?php
+										$id = $element['idRapportBug'];
+										$nom = $element['titre'];
+										?>
+										<tr>
+											<td><?= $id ?></td>
+											<th scope="row"><a href='Index.php?module=rapportbug&action=detail&id=<?= $id ?>'><?= $nom ?></a></th>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<?php
+		}		
 	
 
 	public function affiche_detail($fiche_rapport) {
