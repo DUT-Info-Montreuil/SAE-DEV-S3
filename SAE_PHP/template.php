@@ -1,3 +1,8 @@
+<?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>

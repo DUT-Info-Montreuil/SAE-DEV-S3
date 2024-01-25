@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_joueur/modele_joueur.php";
 require_once "modules/module_joueur/vue_joueur.php";
 

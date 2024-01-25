@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_maps/modele_maps.php";
 require_once "modules/module_maps/vue_maps.php";
 

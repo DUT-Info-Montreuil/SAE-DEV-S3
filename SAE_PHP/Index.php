@@ -1,5 +1,11 @@
 <?php
 session_start();
+define('APPLICATION_STARTED', true);
+
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
+session_start();
 
 require_once "Connexion.php";
 require_once "vue_generique.php";

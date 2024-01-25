@@ -1,4 +1,7 @@
 <?php 
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 require_once"vue_generique.php";
 class vue_joueur extends vue_generique {
     public function __construct () {

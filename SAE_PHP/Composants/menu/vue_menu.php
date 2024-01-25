@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 class VueCompMenu extends VueCompGenerique {
 
 	public function __construct(){

@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_rapportbug/modele_rapportbug.php";
 require_once "modules/module_rapportbug/vue_rapportbug.php";
 

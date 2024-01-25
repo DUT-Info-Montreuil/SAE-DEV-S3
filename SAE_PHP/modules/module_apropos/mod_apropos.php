@@ -1,4 +1,7 @@
 <?php 
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
     require_once "modules/module_apropos/cont_apropos.php";
     require_once "module_generique.php";
 

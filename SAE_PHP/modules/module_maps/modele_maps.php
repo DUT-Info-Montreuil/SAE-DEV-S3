@@ -1,4 +1,7 @@
 <?php 
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 require_once "Connexion.php";
 class modele_maps extends Connexion{
 

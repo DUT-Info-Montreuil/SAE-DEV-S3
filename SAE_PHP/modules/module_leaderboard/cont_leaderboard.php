@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+  die("Accès interdit");
+}
 require_once "modules/module_leaderboard/modele_leaderboard.php";
 require_once "modules/module_leaderboard/vue_leaderboard.php";
 

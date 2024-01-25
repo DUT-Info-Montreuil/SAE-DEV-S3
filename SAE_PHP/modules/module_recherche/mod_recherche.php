@@ -1,4 +1,7 @@
-<?php 
+<?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
     require_once "modules/module_recherche/cont_recherche.php";
     require_once "module_generique.php";
 
