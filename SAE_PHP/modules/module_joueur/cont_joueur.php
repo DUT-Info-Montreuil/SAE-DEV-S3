@@ -16,12 +16,13 @@ class cont_joueur {
 
     public function exec() {
         $id_joueur = isset($_GET["id"]) ? $_GET["id"] : die("id du joueur manquant");
+        $pseudo = $this->modele->get_pseudo_joueur($id_joueur);
         $fiche_joueur = $this->modele->get_fiche_joueur($id_joueur);
         $prog_quetes = $this->modele->get_progression_quetes($id_joueur);
         $amis_joueur = $this->modele->get_amis($id_joueur);
-        $this->vue->affiche($fiche_joueur, $prog_quetes, $amis_joueur);
+        $this->vue->affiche($fiche_joueur, $prog_quetes, $amis_joueur, $pseudo);
 
-        if($_SESSION["role"]["joueur"] == TRUE){
+        if (isset($_SESSION["role"]["joueur"]) && $_SESSION["role"]["joueur"] == true) {
           $idconnect = isset($_SESSION["id"]) ? $_SESSION["id"] : die("id du joueur manquant");
           if($idconnect != $id_joueur){
             if($this->modele->amis($id_joueur, $idconnect) == FALSE ){
@@ -36,28 +37,24 @@ class cont_joueur {
           }
           }
         }
-  
-        if ($_SESSION["role"]["joueur"] == TRUE) {
-            $idconnect = 2;
-
-            if (isset($_GET['action'])) {
-                $action = $_GET['action'];
-                switch ($action) {
-                    case 'amis':
-                        $this->ajouterEnAmis($id_joueur, $idconnect);
-                        break;
-                    case 'bloquer':
-                        $this->bloquer($id_joueur, $idconnect);
-                        break;
-                    case 'retirer':
-                        $this->retirer($id_joueur, $idconnect);
-                        break;
-                    case 'confirmation':
-                        $this->vue->affiche_confirmation();
-                        break;
-                }
+        if (isset($_GET['action'])) {
+            $action = $_GET['action'];
+            switch ($action) {
+                case 'amis':
+                    $this->ajouterEnAmis($id_joueur, $idconnect);
+                    break;
+                case 'bloquer':
+                    $this->bloquer($id_joueur, $idconnect);
+                    break;
+                case 'retirer':
+                    $this->retirer($id_joueur, $idconnect);
+                    break;
+                case 'confirmation':
+                    $this->vue->affiche_confirmation();
+                    break;
             }
         }
+    
     }
 
     public function ajouterEnAmis($id_joueur, $idconnect){

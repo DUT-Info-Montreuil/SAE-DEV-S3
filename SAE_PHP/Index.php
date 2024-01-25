@@ -1,11 +1,5 @@
 <?php
 session_start();
-$_SESSION["role"] = [
-    "admin" => false,
-    "joueur" => false,
-    "visiteur" => true
-];
-
 
 define('APPLICATION_STARTED', true);
 

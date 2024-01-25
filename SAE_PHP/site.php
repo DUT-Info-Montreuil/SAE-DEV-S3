@@ -17,8 +17,6 @@ class Site {
 			case "map" :
 			case "joueur" :
 			case "leaderboard" :
-			case "recherche" : 
-			case "signInUp" :
 			case "recherche" :
 			case "rapportbug" :
 			case "apropos" : 

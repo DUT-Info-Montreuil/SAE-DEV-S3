@@ -51,6 +51,7 @@ class cont_signInUp {
 		}
 		if (password_verify($mdp, $util["motdepasse"])) {
 			$_SESSION['login'] = $login;
+      $_SESSION['id'] = $util['idJoueur'];
       if ($login === 'admin'){
         $_SESSION['role']['admin'] = true;
         $_SESSION['role']['visiteur'] = false;

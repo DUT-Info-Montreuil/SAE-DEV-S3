@@ -12,8 +12,7 @@ class vue_joueur extends vue_generique {
 		parent::__construct();
 	}
 
-    public function affiche($fiche_joueur, $prog_quetes, $amis_joueur){
-        $pseudo = isset($fiche_joueur["Pseudo"])? $fiche_joueur["Pseudo"] : "N/A";
+    public function affiche($fiche_joueur, $prog_quetes, $amis_joueur, $pseudo){
         $experience = isset($fiche_joueur["experience"]) ? $fiche_joueur["experience"] : "N/A";
         $scoreTotal = isset($fiche_joueur["ScoreTotal"]) ? $fiche_joueur["ScoreTotal"] : "N/A";
         $nbPartiesJouees = isset($fiche_joueur["NbPartiesJouées"]) ? $fiche_joueur["NbPartiesJouées"] : "N/A";
@@ -26,7 +25,7 @@ class vue_joueur extends vue_generique {
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="pseudo">
-                        <h2><?php echo $pseudo ?></h2>
+                    <h2><?php echo is_array($pseudo) ? implode(', ', $pseudo) : htmlspecialchars($pseudo); ?></h2>
                     </div>
                 </div>
                 

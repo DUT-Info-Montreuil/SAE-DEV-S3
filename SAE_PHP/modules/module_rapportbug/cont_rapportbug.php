@@ -15,7 +15,7 @@ class cont_rapportbug {
     }
 
     public function exec() {
-      if($_SESSION["role"]["admin"] == TRUE){
+      if (isset($_SESSION["role"]["admin"]) && $_SESSION["role"]["admin"] == true) {
         if(isset($_GET['action']) && $_GET['action'] === 'detail'){
           $this->details();
         } elseif (isset($_GET['action']) && $_GET['action'] === 'confirmationsupp'){
@@ -35,7 +35,7 @@ class cont_rapportbug {
   public function ajout_rapport(){
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         if ($_SESSION["csrf_token"] == $_POST["csrf_token"]) {  
-            $id_joueur = isset($_SESSION["identifiant"]) ? ($_SESSION["identifiant"]) : 0;
+            $id_joueur = isset($_SESSION["id"]) ? ($_SESSION["id"]) : 0;
             $titre = isset ($_POST["titre"]) ? $_POST["titre"] : die("Paramètre manquant");
             $contenu = isset ($_POST["contenu"]) ? $_POST["contenu"] : die("Paramètre manquant");
             $this->vue->vue_reponse($this->modele->ajout_rapport($id_joueur, $titre, $contenu));
