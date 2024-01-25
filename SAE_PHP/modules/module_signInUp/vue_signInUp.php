@@ -43,24 +43,25 @@ class vue_signInUp extends vue_generique
                                     <input type="password" placeholder="CONFIRMATION" name="mdpconf" id="conf"
                                         class="validate passwordConfirm">
                                     <input type="submit" value="Inscription" id="InscriptionBtn">
-
+                                    <span class="togglePassword">Show Password</span>
+                                    <div id="password_rules">
+                                        <ul>
+                                            <li class="password_length">Au moins 8 caractères</li>
+                                            <li class="password_uppercase">Au moins un lettre en majuscule</li>
+                                            <li class="password_number">Au moins un chiffre</li>
+                                            <li class="password_match">Mot de passe et confirmation doivent correspondre</li>
+                                        </ul>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div id="password_rules">
-                        <ul>
-                            <li class="password_length">Au moins 8 caractères</li>
-                            <li class="password_uppercase">Au moins un lettre en majuscule</li>
-                            <li class="password_number">Au moins un chiffre</li>
-                            <li class="password_match">Mot de passe et confirmation doivent correspondre</li>
-                        </ul>
-                    </div>
+
                 </div>
             </div>
         </div>
 
-            <?php
+        <?php
     }
 
 }

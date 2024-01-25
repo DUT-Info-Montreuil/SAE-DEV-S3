@@ -152,14 +152,20 @@
 
 }
 
-#password_rules {
+#password_rules{
+    overflow: hidden;
+}
+
+.slide #password_rules 
+{
     margin: auto;
 }
 
-#password_rules ul li {
+
+.slide #password_rules ul li {
     /*font-size: 12px;
     font-weight: normal;*/
-    color: #ffffff;
+    color: #000000;
 }
 #password_rules ul li.complete {
     color: #5DB406;
@@ -167,6 +173,7 @@
 
 #password_rules li{
     list-style: none;
+
 }
 
 span.togglePassword {

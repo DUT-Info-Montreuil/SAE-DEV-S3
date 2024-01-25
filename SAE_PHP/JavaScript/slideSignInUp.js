@@ -1,7 +1,8 @@
 window.onload = function(){
 let signinBtn = document.querySelector(".signinBtn");
 let signupBtn = document.querySelector(".signupBtn");
-let body = document.querySelector("body")
+let body = document.querySelector("body");
+let passwordRules = document.getElementById("password_rules");
 
 signupBtn.onclick = function () {
   body.classList.add("slide");
@@ -48,6 +49,7 @@ $(document).ready(function() {
         document.getElementById("InscriptionBtn").disabled = !all_pass;
     }
     validateInput.each(validateInputs).on('keyup', validateInputs);
+    document.getElementById("test").disabled = false;
     
     function showPassword() {
         if(validateInput.attr('type') === 'password') {
