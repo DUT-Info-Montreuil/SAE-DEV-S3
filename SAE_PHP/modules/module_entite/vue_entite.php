@@ -47,7 +47,7 @@ class VueEntite extends vue_generique
                 ?>
                     <div class="col-lg-3 col-md-4 col-sm-12">
                         <div class="card mb-4 shadow-sm">
-                            <a href="index.php?module=entite&action=detailsEnnemi&id=<?= $ennemi["idEnnemi"] ?>">
+                            <a href="index.php?module=entite&action=detailsEnnemi&id=<?= $ennemi["idEnnemis"] ?>">
                                 <img src="<?= $ennemi["image"] ?>" alt="Entitée 3" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $ennemi["nom"] ?></h5>
