@@ -2,7 +2,6 @@ window.onload = function(){
 let signinBtn = document.querySelector(".signinBtn");
 let signupBtn = document.querySelector(".signupBtn");
 let body = document.querySelector("body");
-let passwordRules = document.getElementById("password_rules");
 
 signupBtn.onclick = function () {
   body.classList.add("slide");

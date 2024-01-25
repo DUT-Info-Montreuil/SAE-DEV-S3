@@ -6,6 +6,6 @@
 
         public function __construct() {
             parent::__construct();
-            $this->controleur = new cont_SignInUp();
+            $this->controleur = new cont_signInUp();
         }
     }

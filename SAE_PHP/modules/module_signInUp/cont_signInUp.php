@@ -14,8 +14,8 @@ class cont_signInUp {
     }
 
     public function exec(){
-
       $this->action = isset($_GET["action"]) ? $_GET["action"] : "form";
+      
 
       switch ($this->action) {
 	      case "form" :
@@ -24,9 +24,6 @@ class cont_signInUp {
 	    	case "verif_connexion" :
       	  $this->verif_connexion();
 		     	break;
-        case "verif_inscription" :
-          $this->verif_inscription();
-          break;
 		    case "inscription" : 
 	  			$this->inscription();
 		  		break;
@@ -45,18 +42,49 @@ class cont_signInUp {
 
     public function verif_connexion(){
 
+      $login = isset ($_POST['login']) ? $_POST['login'] : die("paramètre manquant");
+      $mdp = isset ($_POST['mdp']) ? $_POST['mdp'] : die("parametre manquant");
+      $util = $this->modele->get_joueur($login);
+		if ($util === false) {
+			$this->vue->joueur_inconnu($login);
+			return;
+		}
+		if (password_verify($mdp, $util["motdepasse"])) {
+			$_SESSION['login'] = $login;
+      if ($login === 'admin'){
+        $_SESSION['role']['admin'] = true;
+        $_SESSION['role']['visiteur'] = false;
+      }
+      else{
+        $_SESSION['role']['joueur'] = true;
+        $_SESSION['role']['visiteur'] = false;
+      }
+			$this->vue->confirm_connexion($login);
+      $this->vue->redirectionJava();	
+    }
+		else {
+			$this->vue->echec_connexion($login);
+		}
+
+    }
+    private function inscription () {
+      $login = isset ($_POST['login']) ? $_POST['login'] : die("paramètre manquant");
+      $mdp = isset ($_POST['mdp']) ? $_POST['mdp'] : die ("paramètre manquant");
+      $mdp_hash = password_hash($mdp, PASSWORD_BCRYPT); 
+      
+      if ($this->modele->ajout_utilisateur($login, $mdp_hash)) {
+        $this->vue->confirm_inscription($login);
+      }
+      else {
+        $this->vue->affichage_SignInUp();
+        $this->vue->erreur_inscription($login);
+      }
+      
     }
 
-    public function verif_inscription(){
-
-    }
-
-    public function inscription(){
-
-    }
-
-    public function deconnexion(){
-        
-    }
-
+    public function deconnexion () {
+      unset($_SESSION['login']);
+      $this->vue->confirm_deconnexion();
+      $this->vue->redirectionJava();
+    }  
 }
