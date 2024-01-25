@@ -18,12 +18,13 @@ class cont_rapportbug {
       if($_SESSION["role"]["admin"] == TRUE){
         if(isset($_GET['action']) && $_GET['action'] === 'detail'){
           $this->details();
-        }
-        else {
+        } elseif (isset($_GET['action']) && $_GET['action'] === 'confirmationsupp'){
+          $this->confirmation();
+        } else {
           $this->lecture_rapport();
       }
       } else {
-      if (isset($_GET['action']) && $_GET['action'] === 'envoie') {
+      if (isset($_GET['action']) && $_GET['action'] === 'confirmationajout') {
           $this->ajout_rapport();
       } else {
         $this->vue->affiche_ajoutRapport();
@@ -54,11 +55,15 @@ public function lecture_rapport(){
    $id = isset ($_GET["id"]) ? $_GET["id"] : die("id du rapport manquant");
    $fiche_rapport = $this->modele->get_fiche_rapport($id);
    $this->vue->affiche_detail($fiche_rapport);
-   if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-      $this->modele->marqueCommeResolut($id);
-      header('Location: Index.php?module=rapportbug');
-      exit;
-   }
+ }
+
+ public function confirmation(){
+  if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $id = isset ($_GET["id"]) ? $_GET["id"] : die("id du rapport manquant");
+    $this->modele->marqueCommeResolut($id);
+    $this->vue->affiche_confirmation();
+    $this->lecture_rapport();
+ }
  }
  
 }
