@@ -103,6 +103,54 @@ class vue_joueur extends vue_generique {
         </main>
         <?php
     }
+
+    public function amis(){
+    ?>
+    <form action="Index.php?module=joueur&action=amis&id=<?= $_GET["id"] ?>" method="POST">
+        <button type="submit" class="btn btn-primary">Ajouter en amis</button>
+    </form>
+    <?php
+    }
+
+    public function plusamis(){
+        ?>
+        <form action="Index.php?module=joueur&action=retirer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Supprimer des amis</button>
+        </form>
+        <?php
+    }
+
+    public function bloquer(){
+        ?>
+        <form action="Index.php?module=joueur&action=bloquer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Bloquer cet individu</button>
+        </form>
+        <?php
+    }
+
+    public function plusbloquer(){
+        ?>
+        <form action="Index.php?module=joueur&action=retirer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Debloquer cet individu</button>
+        </form>
+        <?php
+    }
+
+    	
+	public function affiche_confirmation(){
+        ?>
+            <div class="row justify-content-center">
+                <div class="col-md-10 mb-4">
+                    <div class="card text-center p-3 mb-3">
+                            <h2>L'operation a bien étée effectuée</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <?php	
+        }
+
+
     
 }
 

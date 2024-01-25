@@ -1,9 +1,9 @@
 <?php
 session_start();
 $_SESSION["role"] = [
-    "admin" => true,
-    "joueur" => false,
-    "visiteur" => true
+    "admin" => false,
+    "joueur" => true,
+    "visiteur" => false
 ];
 
 
