@@ -1,3 +1,8 @@
+<?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -10,7 +15,9 @@
         <header>
             <?php echo $menu->getAffichage();?>
         </header>
-        <main></main>
+        <main>
+        <?=$module_html?>
+        </main>
         <footer>
             <?php echo $footer->getAffichage();?>
         </footer>

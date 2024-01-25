@@ -1,4 +1,7 @@
 <?php
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
 
 class Site {
 
@@ -13,7 +16,12 @@ class Site {
 			case "accueil" :
 			case "map" :
 			case "joueur" :
-				require_once "modules/mod_".$this->module_name."/module_".$this->module_name.".php";
+			case "leaderboard" :
+			case "recherche" :
+			case "rapportbug" :
+			case "apropos" : 
+			case "maps" :
+				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
 				break;
 			default :
 				die ("Module inexistant");
