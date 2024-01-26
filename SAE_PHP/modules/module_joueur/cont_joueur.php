@@ -23,18 +23,17 @@ class cont_joueur {
 
         if (isset($_SESSION["role"]["joueur"]) && $_SESSION["role"]["joueur"] == true) {
           $idconnect = isset($_SESSION["id"]) ? $_SESSION["id"] : die("id du joueur manquant");
-          if($idconnect != $id_joueur){
-            if($this->modele->amis($id_joueur, $idconnect) == FALSE ){
-              if($this->modele->bloque($id_joueur, $idconnect) == FALSE  && $this->modele->est_bloque($id_joueur, $idconnect) == FALSE){
+          if ($idconnect != $id_joueur) {
+            if (!$this->modele->amis($id_joueur, $idconnect) && !$this->modele->bloque($id_joueur, $idconnect) && !$this->modele->est_bloque($id_joueur, $idconnect)) {
                 $this->vue->amis();
                 $this->vue->bloquer();
-              } elseif($this->modele->est_bloque($id_joueur, $idconnect) == FALSE) {
+            } elseif ($this->modele->amis($id_joueur, $idconnect)) {
+                $this->vue->plusamis();
+            } elseif ($this->modele->bloque($id_joueur, $idconnect)) {
                 $this->vue->plusbloquer();
-              }
-          } else {
-            $this->vue->plusamis();
-          }
-          }
+            }        
+        }
+
         }
 
         if (isset($_GET['action'])) {
