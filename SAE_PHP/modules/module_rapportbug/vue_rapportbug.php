@@ -20,7 +20,7 @@ class vue_rapportbug extends vue_generique {
 		
 					<h2>Ajouter un rapport de bug</h2>
 
-					<form action="Index.php?module=rapportbug&action=envoie" method="POST">
+					<form action="Index.php?module=rapportbug&action=confirmationajout" method="POST">
 						<div class="mb-3">
 							<label for="titre" class="form-label">Titre du rapport :</label>
 								<input type="text" class="form-control" id="titre" name="titre" required>
@@ -40,12 +40,20 @@ class vue_rapportbug extends vue_generique {
 	<?php
 	}
 
+
+		
 	public function vue_reponse($bool){
+		
 		if($bool == TRUE){
-			echo 'Le rapport de bug a bien été envoyé';
+			$message =  'Le rapport de bug a bien été envoyé';
 		} else {
-			echo 'Le rapport n`a pas pu être envoyé';
+			$message =  'Le rapport n`a pas pu être envoyé';
 		}
+		?>
+			<div class="row justify-content-center">
+				<h2><?= $message?></h2>
+			</div>
+		<?php	
 	}
 
 	public function affiche_resultat($liste) {
@@ -79,9 +87,17 @@ class vue_rapportbug extends vue_generique {
 					</div>
 				</div>
 			</div>
-		</main>
 		<?php
-		}		
+	}
+	
+	
+	public function affiche_confirmation(){
+	?>
+		<div class="row justify-content-center">
+			<h2>Le rapport de bug a bien été marqué comme résolut</h2>
+		</div>
+	<?php	
+	}
 	
 
 	public function affiche_detail($fiche_rapport) {
@@ -93,14 +109,13 @@ class vue_rapportbug extends vue_generique {
 						<h2><?= $fiche_rapport['titre'] ?></h2>
 						<p>Date d'envoi : <?= $fiche_rapport['date'] ?></p>
 						<p>Contenu du rapport : <?= $fiche_rapport['description'] ?></p>
-						<form action="Index.php?module=rapportbug&action=detail&id=<?= $fiche_rapport['idRapportBug'] ?>" method="POST">
+						<form action="Index.php?module=rapportbug&action=confirmationsupp&id=<?= $fiche_rapport['idRapportBug'] ?>" method="POST">
 							<button type="submit" class="btn btn-primary">Marquer comme résolu et quitter</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</main>
 	<?php
 	}
 	

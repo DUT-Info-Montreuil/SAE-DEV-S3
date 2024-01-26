@@ -15,18 +15,19 @@ class Site
 		$this->module_name = isset($_GET['module']) ? $_GET['module'] : "accueil";
 
 		switch ($this->module_name) {
-			case "accueil":
-			case "map":
-			case "joueur":
-			case "leaderboard":
-			case "recherche":
-			case "rapportbug":
-			case "apropos":
-			case "maps":
-			case "entite":
-			case "defense":
-			case "ennemi":
-				require_once "modules/module_" . $this->module_name . "/mod_" . $this->module_name . ".php";
+
+			case "accueil" :
+			case "map" :
+			case "joueur" :
+			case "leaderboard" :
+			case "recherche" :
+			case "rapportbug" :
+			case "apropos" : 
+			case "maps" :
+			case "signInUp" :
+      case "entite":
+				require_once "modules/module_".$this->module_name."/mod_".$this->module_name.".php";
+
 				break;
 			default:
 				die("Module inexistant");

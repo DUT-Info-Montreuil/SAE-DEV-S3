@@ -1,15 +1,18 @@
 <?php 
+
+require_once "vue_generique.php";
+
 if (!defined('APPLICATION_STARTED')) {
     die("Accès interdit");
 }
 require_once"vue_generique.php";
+
 class vue_joueur extends vue_generique {
     public function __construct () {
 		parent::__construct();
 	}
 
-    public function affiche($fiche_joueur, $prog_quetes, $amis_joueur){
-        $pseudo = isset($fiche_joueur["Pseudo"])? $fiche_joueur["Pseudo"] : "N/A";
+    public function affiche($fiche_joueur, $prog_quetes, $amis_joueur, $pseudo){
         $experience = isset($fiche_joueur["experience"]) ? $fiche_joueur["experience"] : "N/A";
         $scoreTotal = isset($fiche_joueur["ScoreTotal"]) ? $fiche_joueur["ScoreTotal"] : "N/A";
         $nbPartiesJouees = isset($fiche_joueur["NbPartiesJouées"]) ? $fiche_joueur["NbPartiesJouées"] : "N/A";
@@ -22,7 +25,7 @@ class vue_joueur extends vue_generique {
             <div class="row mb-4">
                 <div class="col-md-6">
                     <div class="pseudo">
-                        <h2><?php echo $pseudo ?></h2>
+                    <h2><?php echo is_array($pseudo) ? implode(', ', $pseudo) : htmlspecialchars($pseudo); ?></h2>
                     </div>
                 </div>
                 
@@ -103,6 +106,50 @@ class vue_joueur extends vue_generique {
         </main>
         <?php
     }
+
+    public function amis(){
+    ?>
+    <form action="Index.php?module=joueur&action=amis&id=<?= $_GET["id"] ?>" method="POST">
+        <button type="submit" class="btn btn-primary">Ajouter en amis</button>
+    </form>
+    <?php
+    }
+
+    public function plusamis(){
+        ?>
+        <form action="Index.php?module=joueur&action=retirer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Supprimer des amis</button>
+        </form>
+        <?php
+    }
+
+    public function bloquer(){
+        ?>
+        <form action="Index.php?module=joueur&action=bloquer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Bloquer cet individu</button>
+        </form>
+        <?php
+    }
+
+    public function plusbloquer(){
+        ?>
+        <form action="Index.php?module=joueur&action=retirer&id=<?= $_GET["id"] ?>" method="POST">
+            <button type="submit" class="btn btn-primary">Debloquer cet individu</button>
+        </form>
+        <?php
+    }
+
+    	
+	public function affiche_confirmation(){
+        ?>
+            <div class="row justify-content-center">
+                    <h2>L'operation a bien étée effectuée</h2>
+            </div>
+        </main>
+        <?php	
+        }
+
+
     
 }
 

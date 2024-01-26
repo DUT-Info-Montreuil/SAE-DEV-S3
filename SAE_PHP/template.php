@@ -8,7 +8,11 @@ if (!defined('APPLICATION_STARTED')) {
     <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleSignInUp.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="JavaScript/slideSignInUp.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
     <title>Accueil</title>
     </head>
     <body>
