@@ -61,26 +61,20 @@ class modele_joueur extends Connexion{
     }
 
     public function get_bloque($id) {
-        $nrq = Connexion::$bdd->prepare("SELECT Joueurs.idJoueur, Joueurs.Pseudo 
-        FROM Joueurs 
-        WHERE idJoueur IN 
-        ( SELECT CASE 
-        WHEN idJoueur = :id
-        THEN idJoueur_Joueur 
-        ELSE idJoueur 
-        END AS ami_id 
-        FROM AUneRelationAvec 
-        WHERE (idJoueur = :id OR idJoueur_Joueur = :id) 
-        AND bloquer = TRUE)
+        $nrq = Connexion::$bdd->prepare("SELECT Joueurs.idJoueur, Joueurs.Pseudo, AUneRelationAvec.idJoueur_Joueur 
+            FROM Joueurs 
+            INNER JOIN AUneRelationAvec ON Joueurs.idJoueur = AUneRelationAvec.idJoueur
+            WHERE AUneRelationAvec.idJoueur_joueur = :id AND AUneRelationAvec.bloquer = TRUE
         ");
-    $nrq->bindParam("id", $id, PDO::PARAM_INT);
-    $nrq->execute();
-    $retour = $nrq->fetchAll(PDO::FETCH_ASSOC);
-    return $retour;
+        $nrq->bindParam("id", $id, PDO::PARAM_INT);
+        $nrq->execute();
+        $retour = $nrq->fetchAll(PDO::FETCH_ASSOC);
+        return $retour;
     }
+    
 
     public function amis($id, $idJoueur){
-        $liste = $this->get_amis($id);
+        $liste = $this->get_amis($idJoueur);
 
         foreach ($liste as $element){
             if($element["idJoueur"] == $idJoueur){
@@ -94,11 +88,20 @@ class modele_joueur extends Connexion{
         $liste = $this->get_bloque($id);
 
         foreach ($liste as $element){
-            if($element["idJoueur"] == $idJoueur){
+            if($element["idJoueur"] == $idJoueur && $element["idJoueur_Joueur"] == $id){
                 return true;
             }
         }
         return false;
+    }
+
+    public function est_bloque($id, $idJoueur){
+        $nrq = Connexion::$bdd->prepare("SELECT * FROM AUneRelationAvec WHERE AUneRelationAvec.idJoueur = :id AND AUneRelationAvec.idJoueur_Joueur  = :idJoueur");
+        $nrq->bindParam("id", $id, PDO::PARAM_INT);
+        $nrq->bindParam("idJoueur", $idJoueur, PDO::PARAM_INT);
+        $nrq->execute();
+
+        return ($nrq->fetch(PDO::FETCH_ASSOC) !== false);
     }
 
     public function ajouterEnAmi($id, $idJoueur){

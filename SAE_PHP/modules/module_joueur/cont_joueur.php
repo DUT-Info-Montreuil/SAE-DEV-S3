@@ -25,10 +25,10 @@ class cont_joueur {
           $idconnect = isset($_SESSION["id"]) ? $_SESSION["id"] : die("id du joueur manquant");
           if($idconnect != $id_joueur){
             if($this->modele->amis($id_joueur, $idconnect) == FALSE ){
-              if($this->modele->bloque($id_joueur, $idconnect) == FALSE ){
+              if($this->modele->bloque($id_joueur, $idconnect) == FALSE  && $this->modele->est_bloque($id_joueur, $idconnect) == FALSE){
                 $this->vue->amis();
                 $this->vue->bloquer();
-              } else {
+              } elseif($this->modele->est_bloque($id_joueur, $idconnect) == FALSE) {
                 $this->vue->plusbloquer();
               }
           } else {
