@@ -1,6 +1,9 @@
 <?php
-require_once "modules/mod_entite/modele_entite.php";
-require_once "modules/mod_entite/vue_entite.php";
+if (!defined('APPLICATION_STARTED')) {
+    die("Accès interdit");
+}
+require_once "modules/module_entite/modele_entite.php";
+require_once "modules/module_entite/vue_entite.php";
 
 class ControleurEntite
 {
@@ -37,26 +40,30 @@ class ControleurEntite
     {
         $listeDefence = $this->modele->get_listeDefence();
         $listeEnnemi = $this->modele->get_listeEnnemi();
-        $this->vue->liste($listeDefence,$listeEnnemi);
+        $this->vue->liste($listeDefence, $listeEnnemi);
     }
 
     private function detailsDefence()
     {
         $id_defence = isset($_GET["id"]) ? $_GET["id"] : die("Paramètre manquant");
         $donnees = $this->modele->get_detailsDefence($id_defence);
+        $graphDataDef=$this->modele->get_graphDataDefense($id_defence);
         if (!$donnees) {
             die("Erreur dans la récupération de la defence");
         }
-        $this->vue->detailsDefence($donnees);
+        $this->vue->retour();
+        $this->vue->detailsDefence($donnees, $graphDataDef);
     }
 
     private function detailsEnnemi()
     {
         $id_ennemi = isset($_GET["id"]) ? $_GET["id"] : die("Paramètre manquant");
         $donnees = $this->modele->get_detailsEnnemi($id_ennemi);
+        $graphDataEnn=$this->modele->get_graphDataEnnemi($id_ennemi);
         if (!$donnees) {
             die("Erreur dans la récupération de l'ennemi");
         }
-        $this->vue->detailsEnnemi($donnees);
+        $this->vue->retour();
+        $this->vue->detailsEnnemi($donnees,$graphDataEnn);
     }
 }
