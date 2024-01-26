@@ -47,20 +47,23 @@ class ControleurEntite
     {
         $id_defence = isset($_GET["id"]) ? $_GET["id"] : die("Paramètre manquant");
         $donnees = $this->modele->get_detailsDefence($id_defence);
+        $graphDataDef=$this->modele->get_graphDataDefense($id_defence);
         if (!$donnees) {
             die("Erreur dans la récupération de la defence");
         }
-        $this->vue->
-        $this->vue->detailsDefence($donnees);
+        $this->vue->retour();
+        $this->vue->detailsDefence($donnees, $graphDataDef);
     }
 
     private function detailsEnnemi()
     {
         $id_ennemi = isset($_GET["id"]) ? $_GET["id"] : die("Paramètre manquant");
         $donnees = $this->modele->get_detailsEnnemi($id_ennemi);
+        $graphDataEnn=$this->modele->get_graphDataEnnemi($id_ennemi);
         if (!$donnees) {
             die("Erreur dans la récupération de l'ennemi");
         }
-        $this->vue->detailsEnnemi($donnees);
+        $this->vue->retour();
+        $this->vue->detailsEnnemi($donnees,$graphDataEnn);
     }
 }

@@ -30,14 +30,58 @@ if (!defined('APPLICATION_STARTED')) {
 		$req->execute();
 		return $req->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function get_graphDataDefense($id)
+    {
+        $req = Connexion::$bdd->prepare("
+		SELECT date, COUNT(date) as compte 
+        FROM (
+            SELECT date_format(Partie.datePartie, '%d/%m/%Y') AS date 
+            FROM Partie 
+            inner JOIN Place on(Partie.idPartie=Place.idPartie)
+            WHERE Place.idObjet=:id 
+            ) AS t1 
+        GROUP BY date
+		");
+        $req->bindParam("id", $id, PDO::PARAM_INT);
+        $req->execute();
+        $result =$req->fetchAll(PDO::FETCH_ASSOC);
+        $dataPoints = array();
+        foreach ($result as $row) {
+            array_push($dataPoints, array("label"=>$row["date"], "y"=>$row["compte"]));
+        }
+		
+        return $dataPoints;
+    }
 	
     public function get_detailsEnnemi ($id) {
 		$req = Connexion::$bdd->prepare("
 		SELECT * FROM Ennemi WHERE Ennemi.idEnnemis=:id
 		");
-		$pdo_req = self::$bdd->prepare($req);
-		$pdo_req->bindParam("id", $id, PDO::PARAM_INT);
-		$pdo_req->execute();
-		return $pdo_req->fetch(PDO::FETCH_ASSOC);
+		$req->bindParam("id", $id, PDO::PARAM_INT);
+		$req->execute();
+		return $req->fetch(PDO::FETCH_ASSOC);
 	}
+
+	public function get_graphDataEnnemi($id)
+    {
+        $req = Connexion::$bdd->prepare("
+		SELECT date, COUNT(date) as compte 
+        FROM (
+            SELECT date_format(Partie.datePartie, '%d/%m/%Y') AS date 
+            FROM Partie 
+            natural JOIN AeteTue 
+            WHERE idEnnemi=:id 
+            ) AS t1 
+        GROUP BY date;
+		");
+        $req->bindParam("id", $id, PDO::PARAM_INT);
+        $req->execute();
+        $result=$req->fetchAll(PDO::FETCH_ASSOC);
+        $dataPoints = array();
+        foreach ($result as $row) {			
+            array_push($dataPoints, array("label"=>$row["date"], "y"=>$row["compte"]));
+        }
+        return $dataPoints;
+    }
 }
