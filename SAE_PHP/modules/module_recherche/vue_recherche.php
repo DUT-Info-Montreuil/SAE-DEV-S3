@@ -12,13 +12,8 @@ class vue_recherche extends vue_generique {
 	public function affiche_null(){
 		?>
 			<div class="row justify-content-center">
-				<div class="col-md-10 mb-4">
-					<div class="card text-center p-3 mb-3">
-							<h2>Aucun resultat correspondant avec cette recherche !!</h2>
-					</div>
-				</div>
+				<h2>Aucun resultat correspondant avec cette recherche !!</h2>
 			</div>
-		</main>
 		<?php	
 		}
 
@@ -53,7 +48,6 @@ class vue_recherche extends vue_generique {
 					</div>
 				</div>
 			</div>
-		</main>
 		<?php
 		}		
 }

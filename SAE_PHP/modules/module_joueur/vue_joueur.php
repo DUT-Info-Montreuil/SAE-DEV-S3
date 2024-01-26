@@ -143,11 +143,7 @@ class vue_joueur extends vue_generique {
 	public function affiche_confirmation(){
         ?>
             <div class="row justify-content-center">
-                <div class="col-md-10 mb-4">
-                    <div class="card text-center p-3 mb-3">
-                            <h2>L'operation a bien étée effectuée</h2>
-                    </div>
-                </div>
+                    <h2>L'operation a bien étée effectuée</h2>
             </div>
         </main>
         <?php	

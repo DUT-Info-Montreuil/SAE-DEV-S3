@@ -52,7 +52,6 @@ class vue_leaderboard extends vue_generique {
                     </div>
                 </div>
             </div>
-        </main>
         <?php
     }        
     

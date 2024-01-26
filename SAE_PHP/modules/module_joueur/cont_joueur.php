@@ -20,7 +20,6 @@ class cont_joueur {
         $fiche_joueur = $this->modele->get_fiche_joueur($id_joueur);
         $prog_quetes = $this->modele->get_progression_quetes($id_joueur);
         $amis_joueur = $this->modele->get_amis($id_joueur);
-        $this->vue->affiche($fiche_joueur, $prog_quetes, $amis_joueur, $pseudo);
 
         if (isset($_SESSION["role"]["joueur"]) && $_SESSION["role"]["joueur"] == true) {
           $idconnect = isset($_SESSION["id"]) ? $_SESSION["id"] : die("id du joueur manquant");
@@ -37,6 +36,7 @@ class cont_joueur {
           }
           }
         }
+
         if (isset($_GET['action'])) {
             $action = $_GET['action'];
             switch ($action) {
@@ -54,6 +54,9 @@ class cont_joueur {
                     break;
             }
         }
+
+        $this->vue->affiche($fiche_joueur, $prog_quetes, $amis_joueur, $pseudo);
+
     
     }
 

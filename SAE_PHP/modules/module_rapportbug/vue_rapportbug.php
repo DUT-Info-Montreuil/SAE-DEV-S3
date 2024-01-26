@@ -51,15 +51,8 @@ class vue_rapportbug extends vue_generique {
 		}
 		?>
 			<div class="row justify-content-center">
-				<div class="col-md-10 mb-4">
-					<div class="card text-center p-3 mb-3">
-						<div class="container mt-5">
-							<h2><?= $message?></h2>
-						</div>
-					</div>
-				</div>
+				<h2><?= $message?></h2>
 			</div>
-		</main>
 		<?php	
 	}
 
@@ -94,7 +87,6 @@ class vue_rapportbug extends vue_generique {
 					</div>
 				</div>
 			</div>
-		</main>
 		<?php
 	}
 	
@@ -102,13 +94,8 @@ class vue_rapportbug extends vue_generique {
 	public function affiche_confirmation(){
 	?>
 		<div class="row justify-content-center">
-			<div class="col-md-10 mb-4">
-				<div class="card text-center p-3 mb-3">
-						<h2>Le rapport de bug a bien été marqué comme résolut</h2>
-				</div>
-			</div>
+			<h2>Le rapport de bug a bien été marqué comme résolut</h2>
 		</div>
-	</main>
 	<?php	
 	}
 	
@@ -129,7 +116,6 @@ class vue_rapportbug extends vue_generique {
 				</div>
 			</div>
 		</div>
-	</main>
 	<?php
 	}
 	
