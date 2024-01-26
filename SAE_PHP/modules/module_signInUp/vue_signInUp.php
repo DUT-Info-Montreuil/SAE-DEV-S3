@@ -97,20 +97,24 @@ class vue_signInUp extends vue_generique
             Joueur <?=$login?> inconnu
         <?php
             }
-            public function redirectionJava(){
-                $this->chargement();
+            public function redirectionJava($login){
+                $this->chargement($login);
                 ?>
                 <script src="JavaScript/redirection.js"></script>
             <?php
             }
 
-    public function chargement(){
+    public function chargement($login){
 ?>                  
         <div class="general">
             <div class="container">
                 <div class="row">
                     <div class="boxP">
-                        <p> Redirection vers l'acceuil </p>      
+                    <p>
+                        <?php
+                            $this->confirm_connexion($login);
+                        ?>
+                         Redirection vers l'acceuil </p>      
                     </div>
                 </div>
             </div>

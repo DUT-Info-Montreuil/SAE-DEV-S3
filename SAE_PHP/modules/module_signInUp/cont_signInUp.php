@@ -40,7 +40,7 @@ class cont_signInUp {
     }
 
     public function form(){
-        $this->vue->affichage_SignInUp();
+      $this->vue->affichage_SignInUp();
     }
 
     public function verif_connexion(){
@@ -65,8 +65,7 @@ class cont_signInUp {
         $_SESSION['role']['visiteur'] = false;
         $_SESSION['role']['admin'] = false;
       }
-			$this->vue->confirm_connexion($login);
-      $this->vue->redirectionJava();	
+      $this->vue->redirectionJava($login);	
     }
 		else {
 			$this->vue->echec_connexion($login);
@@ -91,6 +90,5 @@ class cont_signInUp {
     public function deconnexion () {
       unset($_SESSION['login']);
       $this->vue->confirm_deconnexion();
-      $this->vue->redirectionJava();
     }  
 }
